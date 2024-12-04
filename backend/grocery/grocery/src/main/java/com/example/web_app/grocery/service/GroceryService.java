@@ -31,4 +31,14 @@ public class GroceryService {
     public List<GroceryItem> getAllItems() {
         return groceryRepository.findAll();
     }
+
+    public String deleteItem(Long id) {
+        GroceryItem existingItem = groceryRepository.findById(id).stream().toList().get(0);
+        if(existingItem != null) {
+            groceryRepository.deleteById(id);
+            return "Item deleted successfully";
+        }
+        return "Item doesn't exists";
+
+    }
 }

@@ -26,4 +26,9 @@ public class GroceryController {
          return groceryService.addItem(groceryItemDto);
     }
 
+    @DeleteMapping("/deleteItem/{id}")
+    public String deleteItem(@PathVariable Long id) {
+        return groceryService.deleteItem(id);
+    }
+
 }
